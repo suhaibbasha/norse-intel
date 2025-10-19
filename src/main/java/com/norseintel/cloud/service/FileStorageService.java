@@ -21,7 +21,7 @@ public class FileStorageService {
     
     private static final Logger log = LoggerFactory.getLogger(FileStorageService.class);
 
-    @Value("${norse.storage.temp-dir}")
+    @Value("${norseintel.storage.temp-dir}")
     private String tempDir;
 
     public File storeFile(MultipartFile file) {
