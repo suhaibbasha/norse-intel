@@ -8,10 +8,10 @@
         <version>3.2.0</version>
         <relativePath/>
     </parent>
-    <groupId>com.norse</groupId>
+    <groupId>com.norseintel</groupId>
     <artifactId>cloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-        <name>norse-cloud</name>
+    <name>norseintel-cloud</name>
     <description>Image and File Forensics Platform</description>
 
     <properties>
@@ -27,6 +27,7 @@
         <imgscalr.version>4.2</imgscalr.version>
         <commons-compress.version>1.24.0</commons-compress.version>
         <jbcrypt.version>0.4</jbcrypt.version>
+        <caffeine.version>3.1.8</caffeine.version>
     </properties>
 
     <dependencies>
@@ -120,6 +121,13 @@
             <artifactId>jbcrypt</artifactId>
             <version>${jbcrypt.version}</version>
         </dependency>
+        
+        <!-- Caffeine Cache -->
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+            <version>${caffeine.version}</version>
+        </dependency>
 
         <!-- Testing -->
         <dependency>
@@ -146,6 +154,21 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
         </plugins>
